@@ -6,12 +6,12 @@ if(!address) {
     return console.log('Unable to get the address!')
 }
 
-geocode(address, (error, data) => {
+geocode(address, (error, { latitude, longitude, location }) => {
     if(error) {
         return console.log(error)
     }
 
-    forecast(data.latitude, data.longitude, (error, forcaseData) => {
+    forecast(latitude, longitude, (error, forcaseData) => {
         if(error) {
             return console.log(error)
         }    
